@@ -1,0 +1,30 @@
+.slider__container {
+  /* center the slide container in the view */
+  width: 50%;
+  margin: auto;
+  cursor: pointer;
+}
+
+.slide {
+  /* make each slide the full width of the container. Hide them by default */
+  width: 100%;
+  margin: auto;
+  display: none;
+}
+
+.active {
+  display: block;
+}
+
+  /*
+.slide:first-child {
+ show the first slide in the series
+  display: block;
+}
+*/
+
+
+.slide__image {
+  /* give each image the same width as the slide. */
+  width: inherit;
+}
