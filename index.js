@@ -3,12 +3,50 @@ var slide = $('.slide');
 var activeSlide = $('.active');
 var button = $('button');
 
+
 $(document).ready(function() {
-  console.log(sliderContainer, slide, activeSlide, button);
+  // console.log(sliderContainer, slide, activeSlide, button);
   var slides = button.siblings('.slide');
-  console.log(slides, 'slides');
+
+  slides.each(function(index, value) {
+    $(value).attr({
+      id: 'slide__' + index,
+
+    });
+    // console.log($(value));
+  });
+
+  button.on('click', function() {
+    var counter;
+    var newSlide;
+
+    // count the index of the divs in each array. the array's are
+    // separated by $(this).
+
+    //control for going over/under the index count.
+
+    var slideArray = $(this).siblings('div');
+    console.log(slideArray, 'slideArray from buuton click');
+
+    var currentSlide = slideArray[0];
+    // var parent = $(this).parent();
+    // var currentSlide = $(this).siblings('.slide');
+    // console.log(currentSlide);
+    if ($(this).hasClass('prev') && $(this).siblings('.active')) {
+      currentSlide = $(this).siblings('.active');
+      newSlide = currentSlide.prev();
+      // console.log(newSlide, 'prevSlide');
+    } else {
+      currentSlide = $(this).siblings('.active');
+      newSlide = currentSlide.next();
+      // console.log(newSlide, 'nextSlide');
+    }
+
+  });
+
+
   var activeSlides = slides.filter('.active');
-  console.log(activeSlides, 'activeSlides');
+  // console.log(activeSlides, 'activeSlides');
 });
 
 
